@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 1000px;
+            height: 7000px;
+            background: linear-gradient(to bottom, red, green, blue);
+            margin: 0 auto;
+        }
+        h2 {
+            position: fixed;
+            top: 0;
+            left: 0;
+            font-size: 3rem;
+        }
+        button {
+            width: 50px;
+            height: 50px;
+            border-radius: 50px;
+            position: fixed;
+            right: 50px;
+            bottom: 50px;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(function(){
+            $(window).scroll(function(){
+                // 브라우저에서 화면 스크롤 할 때 마다
+                let scrPos = $(window).scrollTop();
+                // 스크롤 위치 값을 받아와서 변수에 넣고
+                $("h2 span").text(scrPos);
+                // 그 값을 h2 span 싹 지우고 글자로 넣어라.
+            });
+            $("button").click(function(){
+                // 버튼을 누르면
+                $("html,body").animate({scrollTop:0})
+                // 스크롤 위치 값을 제일 위로 올려라
+            });
+        });
+    </script>
+</head>
+<body>
+    <h2>스크롤 위치 값<span></span></h2>
+    <div id="box"></div>
+    <button>top</button>
+</body>
+</html>
